@@ -51,7 +51,7 @@
       <label class="separador-1" for=""
         >_______________________________________________________________________________________</label
       >
-      <div class="descripcion">{{ descripcion }}</div>
+      <div class="descripcion">{{ articulo.descripcion }}</div>
       <div class="vendedor">Vendido por: {{ articulo.nombreCliente }}</div>
 
       <div class="precio">
@@ -64,7 +64,7 @@
   <span class="material-icons">add_shopping_cart</span>
 </button>
 
-      <button class="comprar-bolsa">
+      <button class="comprar-bolsa" (click)="comprarAhora(articulo.idArticulo)" >
         <span class="material-icons">shopping_bag</span>
       </button>
       <input

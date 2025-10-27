@@ -2,16 +2,18 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 import { ArticleDTO } from '../../../models/ArticleDTO';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class VentasClienteService {
+
   private UrlPublicarArticulo: string =
-    'http://localhost:8080/cliente/ventas/publicar-articulo';
+    `${environment.apiUrl}/cliente/ventas/publicar-articulo`;
 
   private UrlMisArticulosAprobados: string =
-    'http://localhost:8080/cliente/ventas/mis-articulos-publicados-aprobados';
+    `${environment.apiUrl}/cliente/ventas/mis-articulos-publicados-aprobados` ;
 
   constructor(private httpClient: HttpClient) { }
 

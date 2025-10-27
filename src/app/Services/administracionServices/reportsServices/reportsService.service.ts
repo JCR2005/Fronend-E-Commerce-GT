@@ -3,6 +3,8 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 import { Top10CCMAEVDTO } from '../../../models/Top10CCMAEVDTO';
 import { Top10CCMP } from '../../../models/Top10CCMP';
+
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,17 +14,18 @@ export class ReportsServiceService {
 
 
   }
+
+  private baseUrl = environment.apiUrl;
   private UrlNotificaciones: string =
-    'http://localhost:8080/administration/reports/Notifications-report';
+    `${this.baseUrl}/administration/reports/Notifications-report`;
 
      private UrlTop10CCMPEV: string =
-    'http://localhost:8080/administration/reports/Top10CCMPEV-report';
+    `${this.baseUrl}/administration/reports/Top10CCMPEV-report`;
 private UrlTop10CCMP: string =
-    'http://localhost:8080/administration/reports/Top10CCMP-report';
+    `${this.baseUrl}/administration/reports/Top10CCMP-report`;
 
 private UrlTop10CCMPFiltroFechas: string =
-    'http://localhost:8080/administration/reports/Top10CCMP-report-filtrado';
-
+    `${this.baseUrl}/administration/reports/Top10CCMP-report-filtrado`;
 
 
   getHistorialNotificaciones(): Observable<any> {

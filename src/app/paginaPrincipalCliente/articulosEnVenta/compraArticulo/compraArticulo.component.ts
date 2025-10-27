@@ -108,4 +108,8 @@ en una excelente opción para cualquier oficina.
     this.router.navigate(['/cliente/mi-carreta']);
   }
 
+  comprarAhora(id:number){
+    this.addArticuloCarro(id);
+    this.irCarrito();
+  }
 }

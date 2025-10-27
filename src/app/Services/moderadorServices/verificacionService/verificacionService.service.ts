@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, tap, catchError, throwError } from 'rxjs';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +10,7 @@ export class VerificacionServiceService {
  constructor(private httpClient: HttpClient) { }
 
  private UrlVerificacion: string =
-    'http://localhost:8080/moderador/verificacion-articulos/verificar-articulo';
+    `${environment.apiUrl}/moderador/verificacion-articulos/verificar-articulo`;
 
 
     enviar(data: any): Observable<any> {

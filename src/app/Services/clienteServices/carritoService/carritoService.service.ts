@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 import { ItemCarrito } from '../../../models/itemCarrito';
 import { Tarjeta } from '../../../models/Tarjeta';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,33 +16,33 @@ export class CarritoServiceService {
   }
 
   private UrlNumerosArticulosCarro: string =
-    'http://localhost:8080/cliente/carrito/numero de articulos-carro';
+    `${environment.apiUrl}/cliente/carrito/numero de articulos-carro`;
 
 
   private UrlArticulosCarro: string =
-    'http://localhost:8080/cliente/carrito/items-carrito';
+    `${environment.apiUrl}/cliente/carrito/items-carrito`;
 
   private UrlGuardarTarjeta: string =
-    'http://localhost:8080/cliente/carrito/guardar-tarjeta';
+    `${environment.apiUrl}/cliente/carrito/guardar-tarjeta`;
 
   private UrlMisTarjetas: string =
-    'http://localhost:8080/cliente/carrito/mis-tarjetas';
+    `${environment.apiUrl}/cliente/carrito/mis-tarjetas`;
 
   private UrlEliminarTarjeta: string =
-    'http://localhost:8080/cliente/carrito/eliminar-tarjeta';
+    `${environment.apiUrl}/cliente/carrito/eliminar-tarjeta`;
 
     private UrlEliminarArticuloCarro: string =
-    'http://localhost:8080/cliente/carrito/eliminar-item-carrito';
+    `${environment.apiUrl}/cliente/carrito/eliminar-item-carrito`;
 
 
     private UrlCambiarCantidadArticulo: string =
-    'http://localhost:8080/cliente/carrito/cambiar-cantidad-itemCarrito';
+    `${environment.apiUrl}/cliente/carrito/cambiar-cantidad-itemCarrito`;
 
      private UrlComprar: string =
-    'http://localhost:8080/cliente/carrito/pago-carrito';
+    `${environment.apiUrl}/cliente/carrito/pago-carrito`;
 
     private UrlVaciarCarrito: string =
-    'http://localhost:8080/cliente/carrito/vaciar-carrito';
+    `${environment.apiUrl}/cliente/carrito/vaciar-carrito`;
 
   getCantidadArticulos(): Observable<any> {
     return this.httpClient.get<number>(this.UrlNumerosArticulosCarro).pipe(

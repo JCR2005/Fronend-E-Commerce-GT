@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 import { ArticleDTO } from '../../../models/ArticleDTO';
-
+import { environment } from '../../../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
@@ -12,11 +12,11 @@ export class SolicitudServiceService {
 
 
  private UrlSolicitudArticulosRevision: string =
-    'http://localhost:8080/moderador/solicitudes/articulos-en-revision';
+    `${environment.apiUrl}/moderador/solicitudes/articulos-en-revision`;
 
 
  private UrlGetArticuloPorId: string =
-    'http://localhost:8080/moderador/solicitudes/articulo-por-id';
+    `${environment.apiUrl}/moderador/solicitudes/articulo-por-id`;
 
      getArticulos(estatus: string): Observable<any> {
     return this.httpClient.get<ArticleDTO[]>(this.UrlSolicitudArticulosRevision, {
