@@ -1,0 +1,248 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div *ngIf="cargando" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <p>Validando datos, por favor espera...</p>
+</div>
+<div *ngIf="panelMensaje" class="fondo-panel-mensaje">
+  <div *ngIf="panelMensaje" class="PanelMensaje">
+    <i *ngIf="error" class="fas fa-times-circle error-icon"></i>
+    <i *ngIf="exitoso" class="fas fa-check-circle check-icon"></i>
+    <br /><br /><br /><br /><br /><br /><br />
+    <h4>{{ mensaje }}</h4>
+    <br />
+    <br />
+    <br /><br />
+    <button class="cerrarPanelMensaje-btn" (click)="cerrarPanelMensaje()">
+      Continuar
+    </button>
+  </div>
+</div>
+
+    <div class="fondo"></div>
+    <div class="container">
+        <div class="panel-2">
+            <p class="titulo">Publicar articulo</p>
+            <button class="boton-home" (click)="regresarHome()">home</button>
+            
+            <p class="texto t1">
+                <a
+                    href="#"
+                    title="Haz clic para ver la política"
+                >
+                    <i class="fas fa-info-circle "></i>
+                </a>
+                Verifica que tu producto esté permitido antes de publicarlo.
+            </p>
+            <p class="texto t2">
+                   <a
+                    href="#"
+                    title="Haz clic para ver la política"
+                >
+                    <i class="fas fa-info-circle "></i>
+                </a>
+                Asegúrate de que la información y las imágenes sean correctas antes de publicar.
+            </p>
+            <p class="texto t3">
+                   <a
+                    href="#"
+                    title="Haz clic para ver la política"
+                >
+                    <i class="fas fa-info-circle "></i>
+                </a>
+                ¡Publica solo productos permitidos y con buena presentación para atraer más compradores!
+            </p>
+            <p class="texto t4">
+                   <a
+                    href="#"
+                    title="Haz clic para ver la política"
+                >
+                    <i class="fas fa-info-circle "></i>
+                </a>
+                Cuida los detalles antes de publicar: ¡una buena ficha de producto vende más!
+            </p>
+            <div class="panel-1">
+                <form
+                    (submit)="onSubmit()"
+                    (reset)="reiniciarImagen()"
+                >
+                    <div class="nombre">
+                        <input
+                            type="text"
+                            id="nombre"
+                            required
+                            placeholder=" "
+                            name="nombre"
+                            [(ngModel)]="nombre"
+                        >
+
+                        <label for="nombre">Nombre del articulo*</label>
+                    </div>
+
+                    <div class="precio">
+                        <input
+                            type="number"
+                            id="precio"
+                            required
+                            placeholder=" "
+                            name="precio"
+                            (keydown)="blockNegativeSign($event)"
+                            
+                             [ngModel]="null"
+                                (ngModelChange)="precio = $event"
+                        >
+
+                        <label for="precio">
+                            Precio del articulo(Solo numeros mayores a 0)*
+                        </label>
+                    </div>
+
+                    <div class="stock">
+                        <input
+                            type="number"
+                            id="stock"
+                            required
+                            placeholder=" "
+                            name="stock"
+                            (keydown)="blockNegativoDecimalSign($event)"
+                             [ngModel]="null"
+                                (ngModelChange)="stock = $event"
+                        >
+
+                        <label for="stock">
+                            Cuantos articulos hay en stock(Solo numeros mayores a 0)*
+                        </label>
+                    </div>
+                    <div class="estado">
+                        <select
+                            id="estado"
+                            required
+                            name="estado"
+                             [(ngModel)]="estado" 
+                        >
+                            <option
+                                value
+                                disabled
+                                selected
+                            ></option>
+                            <option value="nuevo">Nuevo</option>
+                            <option value="semi nuevo">Semi Nuevo</option>
+                            <option value="usado como nuevo">Usado como nuevo</option>
+                            <option value="usado bueno">Usado bueno</option>
+                            <option value="usado con detalle">Usado con detalle</option>
+                        </select>
+                        <label for="estado">Seleccione el estado*</label>
+
+                    </div>
+                    <br>
+                    <br>
+
+                    <div class="descripcion">
+                        <textarea
+                            type="text"
+                            id="descripcion"
+                            required
+                            placeholder=" "
+                            name="descripcion"
+                            [(ngModel)]="descripcion" 
+                        ></textarea>
+                        <label for="descripcion">
+                            Ingrese la descripcion necesaria del articulo a vender*
+                        </label>
+
+                    </div>
+                    <div class="imagen">
+                        <input
+                            type="file"
+                            id="fileInput"
+                            name="imagen"
+                            (change)="onFileSelected($event)"
+                            accept="image/*"
+                        >
+
+                        <label for="fileInput">Subir Imagen del Artículo</label>
+
+                    </div>
+
+                    <div class="imagen-cargada">
+                        <img
+                            [src]="imagenURL"
+                            *ngIf="imagenURL"
+                            alt="Previsualización de imagen"
+                        >
+                        <p>Se mostrara la imagen seleccionada.</p>
+                    </div>
+                    <div class="fecha">
+                        <input
+                            type="date"
+                            id="fecha"
+                            required
+                            name="fecha"
+
+                            [(ngModel)]="fecha" 
+                        >
+                        <span
+                            class="material-icons icon"
+                            aria-hidden="true"
+                        >
+                            calendar_today
+                        </span>
+                        <label
+                            for="fecha"
+                            class="visually-hidden"
+                        >
+                            Fecha de registro (objeto de calificación)
+                        </label>
+                    </div>
+                    <div class="categorias">
+                        <label for="categorias">Seleccione las Categorías y Atributos*</label>
+
+                        <div class="checkbox-list">
+                            <div
+                                *ngFor="let cat of categoriasDisponibles"
+                                style="display:flex; align-items:center; margin:4px 0;"
+                            >
+                                <input
+                                    type="checkbox"
+                                    [attr.id]="cat.value"
+                                    [value]="cat.value"
+                                    (change)="onCategoryChange($event)"
+                                    [checked]="selectedCategorias.includes(cat.value)"
+                                >
+                                <label
+                                    [attr.for]="cat.value"
+                                    style="margin-left:8px;"
+                                >
+                                    {{ cat.label }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="boton-publicar"
+                        type="submit"
+                    >
+                        publicar
+                    </button>
+
+                    <button
+                        class="boton-reiniciar"
+                        type="reset"
+                    >
+                        <span class="material-icons">refresh</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</body>

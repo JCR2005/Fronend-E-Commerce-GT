@@ -1,0 +1,102 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+    <div *ngIf="cargando" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <p>Cargando, por favor espera...</p>
+</div>
+  <div class="fondo"></div>
+  <div class="container">
+    <p class="titulo">Verificación de Articulo</p>
+
+    <button class="boton-home" (click)="regresarHome()">Regresar</button>
+
+    <div class="panel-1">
+
+      <button class="boton-rechazar" (click)="rechazarArticulo()"> Rechazar </button>
+      <button class="boton-aprobar" (click)="aprobarArticulo()"> Aprobar </button>
+
+      <div class="id">
+        <p class="dato">{{ id }}</p>
+        <label>Id articulo</label>
+      </div>
+
+      <div class="nombre">
+        <p class="dato">{{ nombreArticulo }}</p>
+        <label>Nombre del articulo</label>
+      </div>
+
+      <div class="fecha">
+        <p class="dato">{{ fechaCreacion }}</p>
+        <label>Fecha de creación</label>
+      </div>
+
+      <div class="nombreCliente">
+        <p class="dato">{{ nombreCliente }}</p>
+        <label>Cliente</label>
+      </div>
+      <div class="precio">
+        <p class="dato">{{ precioArticulo }}.00 Q</p>
+        <label>Precio del articulo</label>
+      </div>
+      <div class="stock">
+        <p class="dato">{{ stockArticulo }} unidades</p>
+        <label>stock del articulo</label>
+      </div>
+
+      <div class="estado">
+        <p class="dato">{{ estadoArticulo }}</p>
+        <label>condición del articulo</label>
+      </div>
+
+        <p class="descripcion-label">descripción del articulo</p>
+       <div class="descripcion">
+        <p class="dato">{{ descripcionArticulo }}</p>
+      </div>
+      <div class="imagen-cargada">
+        <label>Imagen del articulo</label>
+        <img
+          [src]="imagenURL"
+          *ngIf="imagenURL"
+          alt="Previsualización de imagen"
+        />
+        <p>Se mostrara la imagen seleccionada.</p>
+      </div>
+        <p class="categoriaslabel">Categorias del articulo</p>
+      <div class="categorias">
+      
+        <div *ngFor="let articulo of categoriasArticulo">
+          <div class="tarjeta-articulo">
+            <p class="item-tarjeta-articulo">{{ articulo }}</p>
+            
+          </div>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

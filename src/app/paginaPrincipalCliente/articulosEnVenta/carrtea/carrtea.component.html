@@ -1,0 +1,316 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="fondo"></div>
+    <div class="container">
+        <div
+            class="agregar-nueva-tarjeta-fondo"
+            *ngIf="panelAgregarTarjeta"
+        >
+            <div class="panel-agregar-nueva-tarjeta">
+                <div class="panel-tarjeta-credito">
+                    <h2 class="secondary-title">
+                        <i
+                            class="fa fa-credit-card"
+                            style="background-color: #ff5400"
+                        ></i>
+                        Ingresa la tarjeta de crédito
+                    </h2>
+                    <label
+                        class="label-input"
+                        for="nombreTitular"
+                    >
+                        Nombre del titular
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="text"
+                        id="nombreTitular"
+                        [(ngModel)]="nombreTitular"
+                    >
+
+                    <label
+                        class="label-input"
+                        for="numeroTarjeta"
+                    >
+                        Número de tarjeta
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="text"
+                        id="numeroTarjeta"
+                        maxlength="16"
+                        [(ngModel)]="numeroTarjeta"
+                    >
+
+                    <label
+                        class="label-input"
+                        for="fechaExpiracion"
+                    >
+                        Fecha de expiración
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="month"
+                        id="fechaExpiracion"
+                        [(ngModel)]="fechaExpiracion"
+                    >
+                </div>
+
+                <button class="boton-agregar-tarjeta" (click)="guardarTarjeta()">Agregar</button>
+                <button
+                    class="boton-cancelar"
+                    (click)="cerrarPanelTarjeta()"
+                >
+                    X
+                </button>
+            </div>
+        </div>
+        <div class="panel-2">
+            <p class="titulo">Mi carrito</p>
+            <button
+                class="boton-home"
+                (click)="regresarHome()"
+            >
+                Inicio
+            </button>
+
+            <div class="caracteristicas-articulos">
+                <div
+                    *ngFor="let articulo of articulos"
+                    class="tarjeta-articulo"
+                >
+                    <div class="imagen-cargada">
+                        <img
+                            *ngIf="articulo?.imagenB64"
+                            [src]="'data:image/png;base64,' + articulo.imagenB64"
+                            alt="Previsualización de imagen"
+                        >
+                    </div>
+
+                    <div class="datos-articulo">
+                        <div class="info-producto">
+                            <div class="nombre">{{ articulo?.nombre }}</div>
+                            <div class="precio">
+                                <label>Precio:</label>
+                                {{ articulo.precio }}
+                            </div>
+                            <br>
+                            <div
+                                class="stock"
+                             
+                            >
+                                <label>Stock:</label>
+                                {{ articulo.stock }}
+                            </div>
+
+                          
+                        </div>
+                          <button class="boton-eliminar-tarjeta" (click)="eliminarArticulo(articulo.id)">
+                        <span
+                            class="material-icons"
+                            
+                        >
+                            delete
+                        </span>
+                    </button>
+                        <div class="control-cantidad">
+  <label class="cantidad-articulos-label">Cantidad:</label>
+
+  <select
+  class="cantidad-articulos"
+  [(ngModel)]="articulo.cantidad"
+  (change)="actualizarCantidad(articulo)"
+>
+  <option *ngFor="let i of generarRango(articulo.stock)" [ngValue]="i">
+    {{ i }}
+  </option>
+</select>
+</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-total">
+                <div class="titulo-pago">
+                    <label style="font-family: sans-serif; font-weight: bold; color: #333333">Pago</label>
+                    <div class="toggle-switch-container">
+                        <label class="switch">
+                            <input
+                                type="checkbox"
+                                [(ngModel)]="pagoTarjetaGuardada"
+                            >
+
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="toggle-label">Pagar con tarjeta guardada</span>
+                    </div>
+                </div>
+
+                <br>
+
+                <div
+                    class="metodo-pago-tarjeta-guardada"
+                    *ngIf="pagoTarjetaGuardada"
+                >
+                    <h2 class="secondary-title">
+                        <i
+                            class="fa fa-credit-card"
+                            style="background-color: #ff5400"
+                        ></i>
+                        Tarjeta de crédito guardada
+                    </h2>
+                    <label
+                        class="label-input"
+                        for="selectorTarjeta"
+                    >
+                        Tarjetas Guardadas
+                    </label>
+                    <div class="tarjeta">
+                      <button class="boton-eliminar-tarjeta"   (click)="eliminarTarjeta()">
+                        <span
+                            class="material-icons"
+                          
+                        >
+                            delete
+                        </span>
+                    </button>
+                    <select
+                        class="input-tarjeta-credito"
+                        id="selectorTarjeta"
+                        [(ngModel)]="tarjetaSeleccionadaId"
+                    >
+                        <option
+                            *ngFor="let t of tarjetas"
+                            [value]="t.id"
+                        >
+                            {{ t.nombreTitular }} - **** **** ****
+              {{ t.numeroTarjeta.slice(-4) }}
+                        </option>
+                    </select>
+                    </div>
+                    
+                    <label
+                        class="label-input"
+                        for="cvv"
+                    >
+                        CVV
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="password"
+                        id="cvv"
+                        maxlength="3"
+                        [(ngModel)]="cvv"
+                    >
+                    <button
+                        class="boton-tarjeta-guardada"
+                        (click)="abrirPanelTarjeta()"
+                    >
+                        Agregar tarjeta
+                    </button>
+                </div>
+
+                <div
+                    class="metodo-pago-tarjeta"
+                    *ngIf="!pagoTarjetaGuardada"
+                >
+                    <h2 class="secondary-title">
+                        <i
+                            class="fa fa-credit-card"
+                            style="background-color: #ff5400"
+                        ></i>
+                        Añadir nueva tarjeta de crédito
+                    </h2>
+                    <label
+                        class="label-input"
+                        for="nombreTitular"
+                    >
+                        Nombre del titular
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="text"
+                        id="nombreTitular"
+                        [(ngModel)]="nombreTitular"
+                    >
+
+                    <label
+                        class="label-input"
+                        for="numeroTarjeta"
+                    >
+                        Número de tarjeta
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="text"
+                        id="numeroTarjeta"
+                        maxlength="16"
+                        [(ngModel)]="numeroTarjeta"
+                    >
+
+                    <label
+                        class="label-input"
+                        for="fechaExpiracion"
+                    >
+                        Fecha de expiración
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="month"
+                        id="fechaExpiracion"
+                        [(ngModel)]="fechaExpiracion"
+                    >
+                    <br>
+                    <label
+                        class="label-input"
+                        for="fechaExpiracion"
+                    >
+                        Ingrese el CVV (Parte tracera de su tarejeta ccc)
+                    </label>
+                    <input
+                        class="input-tarjeta-credito"
+                        type="password"
+                        id="cvv"
+                        maxlength="3"
+
+                        [(ngModel)]="cvv"
+                    >
+                </div>
+
+                <div class="resumen-compra">
+                    <div class="total">
+                        <label>Total:</label>
+                        {{ calcularTotal() }}.00 Q
+                    </div>
+
+                    <button class="comprar-bolsa" (click)="comprarArticulos()">
+                        <span class="material-icons">shopping_bag</span>
+                        Pagar
+                    </button>
+                     <input
+                        class="fecha-compra"
+                        type="date"
+                        id="fechaExpiracion"
+                        [(ngModel)]="fechaCompra"
+                    >
+                     <button class="vaciar-bolsa" (click)="vaciarCarrito()">
+                          <span
+                            class="material-icons"
+                          
+                        >
+                            delete
+                        </span>
+                        
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

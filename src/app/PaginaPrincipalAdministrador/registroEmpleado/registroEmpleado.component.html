@@ -1,0 +1,157 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+  />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<link
+  href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+  rel="stylesheet"
+/>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+  rel="stylesheet"
+/>
+</head>
+
+<div *ngIf="cargando" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <p>Validando datos, por favor espera...</p>
+</div>
+<div *ngIf="panelMensaje" class="fondo-panel-mensaje">
+  <div *ngIf="panelMensaje" class="PanelMensaje">
+    <i *ngIf="error" class="fas fa-times-circle error-icon"></i>
+    <i *ngIf="exitoso" class="fas fa-check-circle check-icon"></i>
+    <br /><br /><br /><br /><br /><br /><br />
+    <h4>{{ mensaje }}</h4>
+    <br />
+    <br />
+    <br /><br />
+    <button
+      class="cerrarPanelMensaje-btn"
+   
+      (click)="cerrarPanelMensaje()"
+    >
+      Continuar
+    </button>
+  </div>
+</div>
+
+<div class="registro-container">
+  <div class="fondo">
+
+  </div>
+  
+
+  <div class="registro-box">
+   
+
+      <button class="boton2" (click)="regresarAtrasNativo()">
+    <- Pagina Principal
+  </button>
+
+     <br /><br /><br />
+    <h1>Registro de nuevo empleado</h1>
+    <br /><br />
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <input
+          type="text"
+          id="Email"
+          required
+          placeholder=" "
+          [(ngModel)]="correo"
+          name="Email"
+        />
+
+        <label for="Email">Ingrese su correo electronico*</label>
+
+        <div
+          *ngIf="!correoValido"
+         
+        >
+          <label class="mensajeError">
+            El correo ingresado no cumple con el formato adecuado.
+          </label>
+        </div>
+      </div>
+
+      <br /> <br />
+
+   <div class="form-group">
+  <select
+    id="rol"
+    required
+    name="rol"
+    [(ngModel)]="rolSeleccionado" 
+  >
+    
+    
+    <option value="administrador">Administrador</option>
+    <option value="moderador">Moderador</option>
+    <option value="logistica">Logística</option>
+    </select>
+  <label for="rol">Rol del Usuario*</label>
+  <div *ngIf="!rolSeleccionadoValido">
+          <label class="mensajeError" >
+            Seleccione el rol del empleado.
+          </label>
+        </div>
+</div>
+      <br /> <br />
+
+      <div class="form-group">
+        <input
+          type="text"
+          id="nombre"
+          required
+          placeholder=" "
+          [(ngModel)]="nombre"
+          name="nombre"
+        />
+        <label for="nombre">Ingrese su nombre completo*</label>
+        <div *ngIf="!nombreValido">
+          <label class="mensajeError" >
+            Ingrese un nombre valido(minimo 2 caracteres, maximo 30 caracteres).
+          </label>
+        </div>
+      </div>
+      <br />
+     
+     
+      <br />
+      <div class="form-group">
+        <br>
+        <input
+          type="date"
+          id="fecha"
+          required
+          placeholder=" "
+          [(ngModel)]="fecha"
+          name="fecha"
+        />
+        <label for="fecha"> Fecha de regristo(objeto de calificación)* </label>
+      </div>
+       <br />
+      <button class="button_siguiente" type="submit">Registrarme</button>
+
+      <button class="button_reiniciar" type="reset">
+        <span class="material-icons">refresh</span>
+      </button>
+    </form>
+    <p style="color: rgb(126, 132, 133)">
+      ¿Ya tienes cuenta?
+      <button class="boton1" (click)="iniciarSesion()">Iniciar Sesión</button>
+    </p>
+  </div>
+</div>

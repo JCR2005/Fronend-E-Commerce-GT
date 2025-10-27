@@ -1,0 +1,441 @@
+.label1 {
+  position: absolute;
+  top: -4%;
+  width: auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(14, 59, 62);
+  font-size: 360%;
+  left: 2%;
+  font-weight:normal;
+  font-family: "Great Vibes", cursive;
+}
+
+.label2 {
+  position: absolute;
+  top: 2%;
+  width: auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(14, 59, 62);
+  font-size: 200%;
+  left: 20%;
+  font-weight: bold;
+}
+
+.texto1{
+    position: absolute;
+    
+    }
+.boton1 {
+  font-family: "Pacifico", cursive;
+  width: auto;
+  left: 40%;
+  height: 4%;
+  padding: 0%;
+  bottom: 3%;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color:#3E2723;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.boton1:hover {
+  background-color: rgb(255, 255, 255);
+
+  cursor: pointer;
+}
+
+.boton2 {
+  font-family: "Pacifico", cursive;
+  position: absolute;
+  width: 25%;
+  height: 5%;
+  padding-left: 0%;
+  left: 5%;
+  top: 2%;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: #3E2723;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.boton2:hover {
+  background-color: rgb(255, 255, 255);
+
+  cursor: pointer;
+}
+
+.registro-container {
+  font-family: "Pacifico", cursive;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #ffffff;
+
+}
+.fondo{
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+   background: url('/images/fondoRegistroEmpleado.png') no-repeat center center fixed;
+ border-radius: 25px 0px 0px 0px;
+ background-position: center center;
+  background-repeat: no-repeat;
+  
+  background-size: 100% 100%; 
+  background-attachment: scroll;    
+   overflow: hidden;
+}
+.registro-box {
+  position: absolute;
+  top: 2.5%;
+  left: 16%;
+  background-color: #ffffffdc;
+  padding: 5% 5%;
+  padding-top: 0%; 
+  border-radius: 100px 35px 300px 50px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  height: 85%;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 5px;
+  font-size: 45px;
+  color: #3E2723;
+}
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #3E2723;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+input,
+select,
+textarea {
+  font-family: "Pacifico", cursive;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-bottom-color: #3E2723;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #aaa;
+  transition: 0.3s ease;
+}
+
+input:focus + label,
+select:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+  top: -20px;
+  font-size: 12px;
+  color: #3E2723;
+}
+
+.toggle-password {
+  width: 10%;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px; 
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #3E2723;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #12522a;
+}
+
+.button_reiniciar {
+  position: absolute;
+  background-color: #3E2723;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  width: 5%;
+  height: 4%;
+  top: 2%;
+  right: 2%;
+  padding: 0%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button_reiniciar:hover {
+  background-color: #634742;
+}
+
+.button_siguiente {
+  font-family: "Pacifico", cursive;
+  padding: 12px;
+  background-color: #3E2723;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+  width: 40%;
+  top: 0%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button_siguiente:hover {
+  background-color: #58403c;
+}
+
+.selects {
+  top: -20px;
+  font-size: 12px;
+  color: #3E2723;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mensajeError {
+  font-size: 13px;
+  top: 80%;
+  position: absolute;
+  color: rgb(228, 0, 0);
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.PanelMensaje {
+  top: 25%;
+  color: #3E2723;
+  font-size: 150%;
+  font-weight: bolder;
+  font-style: italic;
+  padding: 0px 0%;
+  align-items: center;
+  border-radius: 15px;
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 8px #fffdfdce;
+
+  z-index: 1001;
+}
+
+.question-icon {
+  position: absolute;
+  top: 2%;
+  color: #162c5e;
+  font-size: 400%;
+}
+.cerrarPanelMensaje-btn {
+  position: absolute;
+  font-family: "Pacifico", cursive;
+  background-color: #3E2723;
+  color: #fff;
+  border: none;
+  width: 16%;
+  padding: 5px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  top: 80%;
+  transition: background-color 0.3s ease;
+}
+
+.cerrarPanelMensaje-btn:hover {
+  background-color: #162c5e85;
+}
+
+.check-icon {
+  position: absolute;
+  top: 15%;
+  color: #3E2723;
+  font-size: 500%;
+}
+.error-icon {
+  position: absolute;
+  top: 15%;
+  color: #ee2a07; 
+  font-size: 500%;
+  margin-right: 0;
+}
+
+.fondo-panel-mensaje {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2e2d2dab;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+H4 {
+  font-family: "Pacifico", cursive;
+  color: #000000;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #3E2723;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay p {
+  font-family: "Pacifico", cursive;
+  margin-top: 15px;
+  font-size: 21px;
+  color: #3E2723;
+}
+
+.form-group select#rol {
+    width: 103%;
+    padding: 0px 0px 0px 10px;
+    height: 45px;
+    border-radius: 4px;
+    background-color: #ffffff00;
+    font-size: 0.9em;
+    color: #aaa;
+    
+   
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+.form-group select#rol:focus {
+    border-color: #3E2723;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+
+
+
+.form-group select#rol:valid + label[for="rol"],
+.form-group select#rol:focus + label[for="rol"] {
+    top: -25px; 
+    left: 5px;
+    font-size: 0.75em;
+    color: #3E2723; 
+    background-color: #ffffff00;
+    padding: 0 5px;
+    z-index: 15;
+}
+
+
+.form-group:has(select#rol)::after {
+    content: "▼"; 
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    color: #aaa;
+    font-size: 0.7em;
+    pointer-events: none;
+    z-index: 10;
+}

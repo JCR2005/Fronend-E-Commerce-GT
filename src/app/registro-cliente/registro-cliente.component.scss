@@ -1,0 +1,388 @@
+.label1 {
+  position: absolute;
+  top: -4%;
+  width: auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(14, 59, 62);
+  font-size: 360%;
+  left: 2%;
+  font-weight:normal;
+  font-family: "Great Vibes", cursive;
+}
+
+.label2 {
+  position: absolute;
+  top: 2%;
+  width: auto;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(14, 59, 62);
+  font-size: 200%;
+  left: 20%;
+  font-weight: bold;
+}
+
+.boton1 {
+  font-family: "Pacifico", cursive;
+  width: auto;
+  left: 40%;
+  height: 4%;
+  padding: 0%;
+  bottom: 3%;
+  border-radius: 50px;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  color: rgb(14, 59, 62);
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.boton1:hover {
+  background-color: rgb(255, 255, 255);
+
+  cursor: pointer;
+}
+
+.boton2 {
+  font-family: "Pacifico", cursive;
+  position: absolute;
+  width: 25%;
+  height: 5%;
+  padding-left: 0%;
+  left: 3%;
+  top: 2%;
+  border-radius: 50px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  color: #230981;
+  font-size: 100%;
+  font-weight: bold;
+}
+
+.boton2:hover {
+  background-color: rgb(255, 255, 255);
+
+  cursor: pointer;
+}
+
+.registro-container {
+  font-family: "Pacifico", cursive;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #6153bd;
+
+}
+.fondo{
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 57%;
+  height: 100%;
+   background: url('/images/fondoRegistro.png') no-repeat center center fixed;
+ border-radius: 25px 0px 25px 0px;
+ background-position: center center;
+  background-repeat: no-repeat;
+  
+  background-size: 100% 100%; 
+  background-attachment: scroll;    
+   overflow: hidden;
+}
+.registro-box {
+  position: absolute;
+  top: 2.5%;
+  left: 5%;
+  background-color: #ffffff;
+  padding: 5% 5%;
+  padding-top: 0%; 
+  border-radius: 50px 150px 50px 300px;
+  width: 35%;
+  height: 85%;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 5px;
+  font-size: 45px;
+  color: #230981;
+}
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #230981;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+input,
+select,
+textarea {
+  font-family: "Pacifico", cursive;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  outline: none;
+  transition: border-color 0.3s ease;
+  background-color: transparent;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-bottom-color: #230981;
+}
+
+label {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  padding: 10px 0;
+  font-size: 14px;
+  color: #aaa;
+  transition: 0.3s ease;
+}
+
+input:focus + label,
+select:focus + label,
+textarea:focus + label,
+input:not(:placeholder-shown) + label,
+textarea:not(:placeholder-shown) + label {
+  top: -20px;
+  font-size: 12px;
+  color: #230981;
+}
+
+.toggle-password {
+  width: 10%;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font-size: 16px; 
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #230981;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #12522a;
+}
+
+.button_reiniciar {
+  position: absolute;
+  background-color: #230981;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  width: 5%;
+  height: 4%;
+  bottom: 2%;
+  right: 2%;
+  padding: 0%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button_reiniciar:hover {
+  background-color: #413277;
+}
+
+.button_siguiente {
+  font-family: "Pacifico", cursive;
+  padding: 12px;
+  background-color: #230981;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+  width: 40%;
+  top: 0%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button_siguiente:hover {
+  background-color: #473a74;
+}
+
+.selects {
+  top: -20px;
+  font-size: 12px;
+  color: #230981;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; 
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.mensajeError {
+  font-size: 13px;
+  top: 80%;
+  position: absolute;
+  color: rgb(228, 0, 0);
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+  display: none;
+}
+
+input[type="password"]::-webkit-contacts-auto-fill-button,
+input[type="password"]::-webkit-credentials-auto-fill-button {
+  visibility: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.PanelMensaje {
+  top: 25%;
+  color: #162c5e;
+  font-size: 150%;
+  font-weight: bolder;
+  font-style: italic;
+  padding: 0px 0%;
+  align-items: center;
+  border-radius: 15px;
+  position: absolute;
+  width: 60%;
+  height: 50%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 4px 8px #fffdfdce;
+
+  z-index: 1001;
+}
+
+.question-icon {
+  position: absolute;
+  top: 2%;
+  color: #162c5e;
+  font-size: 400%;
+}
+.cerrarPanelMensaje-btn {
+  position: absolute;
+  font-family: "Pacifico", cursive;
+  background-color: #230981;
+  color: #fff;
+  border: none;
+  width: 16%;
+  padding: 5px 10px;
+  border-radius: 25px;
+  cursor: pointer;
+  border: 2px solid #fff;
+  top: 80%;
+  transition: background-color 0.3s ease;
+}
+
+.cerrarPanelMensaje-btn:hover {
+  background-color: #162c5e85;
+}
+
+.check-icon {
+  position: absolute;
+  top: 15%;
+  color: #230981;
+  font-size: 500%;
+}
+.error-icon {
+  position: absolute;
+  top: 15%;
+  color: #ee2a07; 
+  font-size: 500%;
+  margin-right: 0;
+}
+
+.fondo-panel-mensaje {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2e2d2dab;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+H4 {
+  font-family: "Pacifico", cursive;
+  color: #000000;
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+.loading-spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid rgb(14, 59, 62);
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-overlay p {
+  font-family: "Pacifico", cursive;
+  margin-top: 15px;
+  font-size: 21px;
+  color: rgb(14, 59, 62);
+}

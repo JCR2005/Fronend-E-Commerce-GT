@@ -1,0 +1,93 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="fondo"></div>
+  <div class="container">
+    <div class="panel-2">
+      <button
+        class="carro"
+        (click)="irCarrito()"
+      >
+        <span class="material-icons">shopping_cart</span>
+      </button>
+
+      <div class="contador-carro">{{cantidadArticulos}}</div>
+      <p class="titulo">E-Commerce GT</p>
+      <button class="boton-home" (click)="regresarHome()">Inicio</button>
+
+      <div class="imagen-cargada">
+        <img
+          *ngIf="articulo?.imagenB64"
+          [src]="'data:image/png;base64,' + articulo.imagenB64"
+          alt="Previsualización de imagen"
+        />
+      </div>
+      <div class="caracteristicas-articulos"></div>
+
+      <div class="nombre">{{ articulo.nombre }}</div>
+      <label class="separador-1" for=""
+        >_______________________________________________________________________________________</label
+      >
+      <div class="descripcion">{{ descripcion }}</div>
+      <div class="vendedor">Vendido por: {{ articulo.nombreCliente }}</div>
+
+      <div class="precio">
+        <label for="">precio: </label> {{ articulo.precio }}.00 Q
+      </div>
+      <div class="stock">
+        <label for="">Diponibilidad: </label>{{ articulo.stock }} unidades
+      </div>
+      <button class="añadir-carro" (click)="addArticuloCarro(articulo.idArticulo)">
+  <span class="material-icons">add_shopping_cart</span>
+</button>
+
+      <button class="comprar-bolsa">
+        <span class="material-icons">shopping_bag</span>
+      </button>
+      <input
+        class="cantidad-articulos"
+        (keydown)="blockNegativoDecimalSign($event)"
+        type="number"
+        [(ngModel)]="catidadArticulos"
+
+      />
+      <label class="cantidad-articulos-label">Cantidad:</label>
+      <div class="rating precise">
+        <div class="stars-bg">
+          <i class="far fa-star"></i><i class="far fa-star"></i
+          ><i class="far fa-star"></i><i class="far fa-star"></i
+          ><i class="far fa-star"></i>
+        </div>
+        <div class="stars-fill" style="width: 24%">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i><i class="fas fa-star"></i
+          ><i class="fas fa-star"></i>
+        </div>
+        <span>(4.7)</span>
+      </div>
+    </div>
+  </div>
+</body>

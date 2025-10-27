@@ -1,0 +1,109 @@
+.container {
+  font-family: "Pacifico", cursive;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color:rgb(255, 255, 255) ;
+
+
+}
+
+.fondo{
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+   background: url('/images/vendedor.jpeg') no-repeat center center fixed;
+ border-radius: 25px 0px 0px 0px;
+ background-position: center center;
+  background-repeat: no-repeat;
+  
+  background-size: 100% 100%; 
+  background-attachment: scroll;    
+   overflow: hidden;
+}
+
+.label1{
+  padding: 0%;
+  font-size: 300%;
+  color: #e79519;
+}
+.panel_menu{
+
+  position: absolute;
+  width: 23%;
+  height: 85%;
+  background-color:rgba(44, 43, 145, 0.37) ;
+  border-radius: 10px 100px ;
+  top: 3%;
+  right: 3%;  
+  padding-top: 5%;
+  display:flex; flex-direction:column; 
+  align-items: center; 
+  gap: 5%;
+}
+
+.boton_menu{
+
+  font-family: "Pacifico", cursive;
+  left: 10%;
+  width: 80%;
+  height: 8%;
+  border: none;
+  border-radius: 100px 10px;
+  background-color: #411fbe;
+  color: #ffffff;
+  font-size: 150%;
+}
+.boton_menu:hover{
+
+  background-color:  #ff8750d7; ;
+
+}
+
+.panel{
+  position: absolute;
+  top: 10%;
+  width:100%;
+  height: 90%;
+  left: 0%;
+}
+
+.boton-home{
+
+  position: absolute;
+  top: 5%;
+  left: 0%;
+  width: 10%;
+  height: 10%;
+  background-color: #fc891e;
+  color: white;
+  border: none;
+  border-radius: 10px 100px;
+  font-size: 1.5em;
+  font-family: "Pacifico", cursive;
+}
+
+.titulo{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  font-size: 300%;
+  width: 30%;
+  height: 10%;
+  font-family: "Pacifico", cursive;
+  color: #ffffff;
+  background-color: #411fbe;
+  
+  text-align:right;
+  padding-right: 3%;
+border-radius: 100px 10px;
+  
+}

@@ -1,0 +1,123 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-..." crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="fondo"></div>
+
+    <div class="container">
+
+            <div class="panel_menu">
+
+            <button
+                class="boton_menu"
+                (click)="pedirArticulosAprobados()"
+                  [ngClass]="{'activo': listaArticulosAprobados}"
+            >
+               Aprobados 
+            </button>
+            <button
+                class="boton_menu"
+                 [ngClass]="{'activo': listaArticulosRevisando}"
+                (click)="mostrarArticulosEnRevision()"
+            >
+                En revision
+            </button>
+            <button
+                class="boton_menu"
+                  [ngClass]="{'activo': listaArticulosRechazados}"
+                (click)="pedirArticulosRechazados()"
+            >
+                Rechazados
+            </button>
+        </div>
+        
+           <p class="titulo">Mis publicaciones</p>
+        <button
+            class="boton-home"
+            (click)="regresarHome()"
+        >
+            home
+        </button>
+        
+        <div *ngIf="listaArticulosRevisando" class="panel-1"> 
+           
+            <div class="encabezado-tarjeta-revision">
+                <div class="encabeado-revisando">No. de articulo</div>
+                <div class="encabeado-revisando">Nombre</div>
+                <div class="encabeado-revisando">Fecha</div>
+
+                <div class="encabeado-revisando">Estatus</div>
+            </div>
+             <br> 
+            <div *ngFor="let articulo of articulos;let i = index">
+                
+                <div class="tarjeta-articulo">
+                   
+                    <h1 class="item-tarjeta-articulo">{{ i + 1 }}</h1> 
+                      <h1 class="item-tarjeta-articulo">{{ articulo.nombre }}</h1> 
+
+                      <h1 class="item-tarjeta-articulo">{{ articulo.fecha }}</h1> 
+                    
+                      <h1 class="item-tarjeta-articulo">{{ articulo.estatus }}</h1> 
+                </div>
+                
+            </div>
+        </div>
+  <div *ngIf="listaArticulosAprobados" class="panel-1"> 
+           
+            <div class="encabezado-tarjeta-revision">
+                <div class="encabeado-revisando">No. de articulo</div>
+                <div class="encabeado-revisando">Nombre</div>
+                <div class="encabeado-revisando">Fecha</div>
+
+                <div class="encabeado-revisando">Estatus</div>
+            </div>
+             <br> 
+            <div *ngFor="let articulo of articulos;let i = index">
+                
+                <div class="tarjeta-articulo">
+                   
+                    <h1 class="item-tarjeta-articulo">{{ i + 1 }}</h1> 
+                      <h1 class="item-tarjeta-articulo">{{ articulo.nombre }}</h1> 
+
+                      <h1 class="item-tarjeta-articulo">{{ articulo.fecha }}</h1> 
+                    
+                      <h1 class="item-tarjeta-articulo">{{ articulo.estatus }}</h1> 
+                </div>
+                
+            </div>
+        </div>
+
+         <div *ngIf="listaArticulosRechazados" class="panel-1"> 
+           
+            <div class="encabezado-tarjeta-revision">
+                <div class="encabeado-revisando">No. de articulo</div>
+                <div class="encabeado-revisando">Nombre</div>
+                <div class="encabeado-revisando">Fecha</div>
+
+                <div class="encabeado-revisando">Estatus</div>
+            </div>
+             <br> 
+            <div *ngFor="let articulo of articulos;let i = index">
+                
+                <div class="tarjeta-articulo">
+                   
+                    <h1 class="item-tarjeta-articulo">{{ i + 1 }}</h1> 
+                      <h1 class="item-tarjeta-articulo">{{ articulo.nombre }}</h1> 
+
+                      <h1 class="item-tarjeta-articulo">{{ articulo.fecha }}</h1> 
+                    
+                      <h1 class="item-tarjeta-articulo">{{ articulo.estatus }}</h1> 
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>

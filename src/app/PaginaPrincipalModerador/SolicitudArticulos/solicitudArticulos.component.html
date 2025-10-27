@@ -1,0 +1,68 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+  />
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <div class="fondo"></div>
+  <div class="container">
+    <p class="titulo">Solicitudes de Articulos</p>
+
+    <button class="boton-home" (click)="regresarHome()">home</button>
+    <div class="panel-1">
+      <div style="display: flex">
+        <div class="encabezado-tarjeta-numeracion">
+          <div class="encabeado-revisando">No.</div>
+        </div>
+        <div class="encabezado-tarjeta-revision">
+          <div class="encabeado-revisando">Id Articulo</div>
+          <div class="encabeado-revisando">Nombre</div>
+
+          <div class="encabeado-revisando">Cliente</div>
+          <div class="encabeado-revisando">Fecha</div>
+          <button class="encabeado-revisando">Accion</button>
+        </div>
+      </div>
+
+      <br />
+      <div *ngFor="let articulo of articulos; let i = index">
+        <div style="display: flex">
+          <div class="tarjeta-articulo-numeracion">
+            <h1 class="item-tarjeta-articulo-numeracion">{{ i + 1 }}</h1>
+          </div>
+          <div class="tarjeta-articulo">
+            <h1 class="item-tarjeta-articulo">{{ articulo.idArticulo }}</h1>
+
+            <h1 class="item-tarjeta-articulo">{{ articulo.nombre }}</h1>
+
+            <h1 class="item-tarjeta-articulo">{{ articulo.nombreCliente }}</h1>
+            <h1 class="item-tarjeta-articulo">{{ articulo.fecha }}</h1>
+            <h1 class="boton-procesar" (click)="verificarArticulo(articulo.idArticulo)">Procesar</h1>
+          </div>
+        </div>
+        <br />
+      </div>
+    </div>
+  </div>
+</body>

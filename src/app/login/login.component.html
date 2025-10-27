@@ -1,0 +1,105 @@
+<head>
+  <meta charset="utf-8" />
+  <base href="/" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <link
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    integrity="sha512-..."
+    crossorigin="anonymous"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+    rel="stylesheet"
+  />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<div *ngIf="cargando" class="loading-overlay">
+  <div class="loading-spinner"></div>
+  <p>Validando credenciales, por favor espera...</p>
+</div>
+
+<div *ngIf="panelMensaje" class="fondo-panel-mensaje">
+  <div *ngIf="panelMensaje" class="PanelMensaje">
+    <i *ngIf="panelMensaje" class="fas fa-times-circle error-icon"></i>
+    <br /><br /><br /><br /><br /><br /><br />
+    <h4>{{ mensaje }}</h4>
+    <br />
+    <br />
+    <br />
+    <button
+      class="cerrarPanelMensaje-btn"
+      style="background-color: rgb(14, 59, 62)"
+      (click)="cerrrarPanelMensaje()"
+    >
+      Continuar
+    </button>
+  </div>
+</div>
+
+<div class="login-container">
+  <p class="label1">E-Commerce GT</p>
+
+  <p class="label2">Login</p>
+  <button class="boton2" (click)="regresarAtrasNativo()">
+    <- Pagina Principal
+  </button>
+
+  <div class="login-box">
+    <h2 style="font-family: 'Pacifico', cursive">Sign in to your account</h2>
+    <br /><br /><br />
+    <br />
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <div class="form-group">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          [(ngModel)]="usuario"
+          required
+          autocomplete="username"
+        />
+
+        <label for="username" style="color: rgb(176, 177, 177); font-size: 90%"
+          >Email address</label
+        >
+      </div>
+      <br /><br />
+      <div class="form-group">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="password"
+          required
+          autocomplete="password"
+        />
+        <label for="password" style="color: rgb(176, 177, 177); font-size: 90%"
+          >Password</label
+        >
+      </div>
+      <br /><br />
+      <button type="submit">Sign in</button>
+      <br /><br />
+      <p style="color: rgb(176, 177, 177)">
+        ________________________or________________________
+      </p>
+      <br />
+      <div id="googleBtnContainer" #googleBtnContainer></div>
+
+      <p class="register-link">
+        ¿Not at member? <a href="/registroCliente">Create Account</a>
+      </p>
+    </form>
+  </div>
+</div>

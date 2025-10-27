@@ -1,0 +1,47 @@
+ <head>
+    <meta charset="utf-8">
+    <base href="/">
+    
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+ </head>
+ <body>
+
+     <nav class="navbar">
+        <div class="navbar-container">
+          
+            <ul class="navbar-menu">
+                <li class="navbar-item">
+                    <a class="navbar-link" id="quienes-somos"  (click)="mostrarQuienesSomos()">¿Quienes somos?</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" id="vende-con-nosotros" (click)="mostrarVendeConNosotros()">Vende con nosotros</a>
+                </li>
+                 <li class="navbar-item">
+                    <a class="navbar-link" id="compra-seguro" (click)="mostrarCompraSeguro()">Compra seguro</a>
+                </li>
+                 <li class="navbar-item">
+                    <a class="navbar-link" id="excelente-logistica"  (click)="mostrarExcelenteLogistica()">Exelente logistica</a>
+                </li>
+            </ul>
+        </div>
+        </nav>
+
+    <div class="contenedor">
+
+      
+         <div id="imagen" class="contenedor-imagen" style="margin-top: 2%;">    
+             <img [src]="ruta" alt="Icono de logística" />
+             
+        </div>
+         <div id="imagen2" class="contenedor-imagen" style="margin-top: 5%;">    
+             <img [src]="ruta2" alt="Icono de logística" />
+             
+        </div>
+
+       
+    </div>
+    
+ </body>

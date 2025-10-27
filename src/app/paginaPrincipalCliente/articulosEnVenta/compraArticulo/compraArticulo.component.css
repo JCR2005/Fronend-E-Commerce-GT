@@ -1,0 +1,331 @@
+.container {
+  font-family: "Pacifico", cursive;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #fffafa00;
+  padding: 0%;
+  margin-top: 0%;
+}
+.fondo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/images/fondoCompras.jpeg") no-repeat center center fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  background-size: 100% 100%;
+  background-attachment: scroll;
+  overflow: hidden;
+}
+
+.fondo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.103); /* Color original que tienes */
+  backdrop-filter: blur(40px);
+  pointer-events: none;
+}
+
+.titulo {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  font-size: 300%;
+  width: 30%;
+  height: 10%;
+  font-family: "Pacifico", cursive;
+  color: #ffffff;
+  background-color: #6633cc;
+
+  text-align: right;
+  padding-right: 3%;
+  border-radius: 100px 10px;
+}
+
+.boton-home {
+  position: absolute;
+  top: 5%;
+  left: 0%;
+  width: 10%;
+  height: 10%;
+  background-color: #fc891e;
+  color: rgb(255, 255, 255);
+  border: #6633cc solid 5px;
+  border-radius: 10px 100px;
+  font-size: 1.5em;
+  font-family: "Pacifico", cursive;
+}
+.contador-carro{
+ position: absolute;
+  top: 5%;
+  right: 4.5%;
+  width: 3%;
+  color: white;
+  height: 4%;
+  background-color: #29264a;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 50% 50%;
+}
+.carro {
+  position: absolute;
+  top: 8%;
+  right: 7%;
+  width: 6%;
+  height: 6%;
+  background-color: #fc891e;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 100px 10px;
+  font-size: 1.5em;
+  font-family: "Pacifico", cursive;
+}
+
+.imagen-cargada {
+  position: absolute;
+  left: 15%;
+  top: 20%;
+  border-radius: 50px;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60%;
+  background-color: #92181800;
+}
+.imagen-cargada img {
+  border-radius: 10px;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  z-index: 10;
+}
+
+.descripcion {
+  position: absolute;
+  right: 28%;
+  top: 50%;
+  width: 35%;
+  height: 20%;
+  padding-left: 2%;
+
+  font-family: sans-serif;
+  font-size: 100%;
+  color: #000000;
+  background-color: #ffffff00;
+  white-space: pre;
+  overflow-y: auto;
+}
+
+.separador-1{
+
+    position: absolute;
+    top: 35%;
+    right: 36%;
+    color: #c4c4c4;
+}
+.descripcion::-webkit-scrollbar {
+  display: none;
+}
+.nombre {
+  position: absolute;
+  right: 20%;
+  top: 22%;
+  border-radius: 15px 100px;
+  width: 43%;
+  height: 6%;
+  background-color: #ffffff00;
+  color: #351d67;
+  font-weight: 900;
+  font-family: sans-serif;
+  font-size: 300%;
+  padding-left: 2%;
+}
+
+.cantidad-articulos {
+  position: absolute;
+  color: #000000;
+  font-family: sans-serif;
+  text-align: center;
+  right: 15%;
+  top: 50%;
+  font-size: 100%;
+
+  width: 15%;
+  height: 5%;
+  background-color: #ece4ff;
+
+  border-radius: 25px  25px;
+
+  border: none;
+}
+
+.cantidad-articulos-label{
+
+    position: absolute;
+    right: 26.5%;
+  top: 47%;
+
+    color: #6f6f6f;
+  text-align: left;
+}
+
+.añadir-carro {
+  position: absolute;
+  font-family: "Pacifico", cursive;
+  color: #ffffff;
+  right: 15%;
+  top: 65%;
+  font-size: 50%;
+
+  width: 15%;
+  height: 5%;
+  background-color: #ffa20b;
+
+  border-radius: 100px  100px;
+
+  border: none;
+}
+.añadir-carro:hover {
+  background-color: #ffb655;
+}
+
+.comprar-bolsa {
+  position: absolute;
+  font-family: "Pacifico", cursive;
+  color: #ffffff;
+  right: 15%;
+  top: 58%;
+  font-size: 150%;
+
+  width: 15%;
+  height: 5%;
+  background-color: #2c1d67;
+
+  border-radius: 100px  100px;
+
+  border: none;
+}
+.comprar-bolsa:hover {
+  background-color: #37469f;
+}
+
+
+.añadir-carro i, .añadir-carro .material-icons {
+  margin-right: 0px;
+  font-size: 300%;
+  vertical-align: middle;
+}
+.vendedor {
+  position: absolute;
+  right: 28%;
+  top: 31%;
+  width: 35%;
+  height: 3%;
+  padding-left: 2%;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 120%;
+  color: #000000;
+  background-color: #ffffff00;
+  white-space: pre;
+  overflow-y: auto;
+}
+.caracteristicas-articulos {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  border-radius: 50px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  background-color: #ffffff9d;
+}
+.precio label{
+
+    color: #000000;
+}
+.precio {
+  position: absolute;
+  font-family: "Pacifico", cursive;
+  color: #15125f;
+  right: 51%;
+  top: 45%;
+  font-size: 100%;
+    font-weight: bold;
+  width: 12%;
+  height: 6%;
+  background-color: #ffffff00;
+
+  font-family: sans-serif;
+  border-radius: 25px;
+  text-align: left;
+}
+.stock label{
+
+    color: #000000;
+}
+.stock {
+  position: absolute;
+  color: #134f28;
+  right: 51%;
+  top: 40%;
+  font-size: 100%;
+
+    font-weight: bold;
+  font-family: sans-serif;
+  width: 12%;
+  height: 6%;
+  background-color: #14f71400;
+
+  border-radius: 25px ;
+  text-align: left;
+}
+
+.panel-2 {
+  left: 0%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(111, 101, 143, 0);
+  overflow-y: auto;
+  border-radius: 5px;
+}
+
+.panel-2::-webkit-scrollbar {
+  display: none;
+}
+
+.rating {
+  position: absolute;
+  top: 30%;
+  right: 45%;
+  display: inline-block;
+}
+
+.stars-bg i {
+  color: #ccc;
+}
+
+.stars-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #FFD700; 
+}

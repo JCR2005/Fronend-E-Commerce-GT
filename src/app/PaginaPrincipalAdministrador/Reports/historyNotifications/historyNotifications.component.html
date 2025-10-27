@@ -1,0 +1,72 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div *ngIf="cargando" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>Cargando, por favor espera...</p>
+  </div>
+
+  <div class="fondo"></div>
+
+  <div class="container">
+
+    <div class="top-bar">
+      <button class="boton-home" (click)="dashboard()">
+        <i class="fas fa-arrow-left"></i> Regresar al Dashboard
+      </button>
+      <p class="titulo">Historial de Notificaciones</p>
+    </div>
+
+    <div class="panel-1">
+      <table class="tabla-notificaciones">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Destinatario</th>
+            <th>Tipo</th>
+            <th>Mensaje</th>
+            <th>Fecha y Hora</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let noti of notifications">
+            <td>{{ noti.id }}</td>
+            <td>{{ noti.nombreCliente }}</td>
+            <td>
+              <span class="tipo-notificacion" [ngClass]="noti.tipoNotificacion">
+                <i *ngIf="noti.tipoNotificacion === 'informativo'" class="fas fa-info-circle"></i>
+                <i *ngIf="noti.tipoNotificacion === 'advertencia'" class="fas fa-exclamation-triangle"></i>
+                <i *ngIf="noti.tipoNotificacion === 'exito'" class="fas fa-check-circle"></i>
+                {{ noti.tipoNotificacion | titlecase }}
+              </span>
+            </td>
+
+            <td class="mensaje">
+  <span [class.expandido]="noti.expandido">
+    {{ noti.expandido ? noti.mensaje : (noti.mensaje | slice:0:120) + (noti.mensaje.length > 120 ? ' ...' : '') }}
+  </span>
+  <button *ngIf="noti.mensaje.length > 120"
+          class="btn-ver-mas"
+          (click)="noti.expandido = !noti.expandido">
+    {{ noti.expandido ? 'Ver menos' : 'Ver más' }}
+  </button>
+</td>
+
+            <td>{{ noti.fecha | date: 'dd/MM/yyyy HH:mm' }}</td>
+          </tr>
+
+          <tr *ngIf="notifications.length === 0">
+            <td colspan="5" class="no-data">No hay notificaciones registradas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
