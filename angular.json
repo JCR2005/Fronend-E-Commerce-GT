@@ -16,10 +16,8 @@
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
-
           "options": {
-           "outputPath": "dist/e-commerce-gtfronted",
-
+            "outputPath": "dist/e-commerce-gtfronted",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -31,7 +29,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/_redirects" 
             ],
             "styles": [
               "src/styles.scss"
@@ -80,7 +79,8 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              },
+              "src/_redirects" 
             ],
             "styles": [
               "src/styles.scss"
