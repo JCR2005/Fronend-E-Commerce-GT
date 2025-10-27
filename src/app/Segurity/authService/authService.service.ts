@@ -8,10 +8,8 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root'
 })
 export class AuthServiceService {
-
-  private baseUrl = environment.apiUrl;
-private Url: string = `${this.baseUrl}/auth/login`; 
-private signupUrl: string = `${this.baseUrl}/auth/signup`;
+  private Url: string = 'http://localhost:8080/auth/login'; 
+  private signupUrl: string = 'http://localhost:8080/auth/signup';
   private tokenKey: string = 'authToken';
 
   constructor(private httpClient: HttpClient, private router: Router) {}
