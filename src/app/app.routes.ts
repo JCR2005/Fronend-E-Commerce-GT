@@ -20,6 +20,10 @@ import { CarrteaComponent } from './paginaPrincipalCliente/articulosEnVenta/carr
 import { HistoryNotificationsComponent } from './PaginaPrincipalAdministrador/Reports/historyNotifications/historyNotifications.component';
 import { Top10ccmaevComponent } from './PaginaPrincipalAdministrador/Reports/top10ccmaev/top10ccmaev.component';
 import { Top10CCMPComponent } from './PaginaPrincipalAdministrador/Reports/top10CCMP/top10CCMP.component';
+import { ListEmpladosComponent } from './PaginaPrincipalAdministrador/Reports/listEmplados/listEmplados.component';
+import { Top5CCMVComponent } from './PaginaPrincipalAdministrador/Reports/top5CCMV/top5CCMV.component';
+import { Top10PMVComponent } from './PaginaPrincipalAdministrador/Reports/Top10PMV/Top10PMV.component';
+import { Top5CCMGComponent } from './PaginaPrincipalAdministrador/Reports/Top5CCMG/Top5CCMG.component';
 
 export const routes: Routes = [
   
@@ -30,16 +34,21 @@ export const routes: Routes = [
     {path: 'registroCliente', component: RegistroClienteComponent, canActivate: [guardLoginGuard]},
     {path: 'cliente/home', component: PaginaPrincipalClienteComponent, canActivate: [authGuard]},
     {path: 'administración/registroEmpleado', component: RegistroEmpleadoComponent, canActivate: [authGuard]},
-    {path: 'cliente/portalDeVentas', component: ArticuloAVenderComponent},
-    {path: 'cliente/publicarArticulo', component: CrearArticuloVentaComponent},
-    {path: 'cliente/mis-publicaciones', component: VerMisArticuloPublicadosComponent},
-    {path: 'moderador/paginaPrincipalModerador', component: PaginaPrincipalModeradorComponent},
-    {path: 'moderador/procesarSolicitudVenta', component: solicitudArticulosComponent},
-    {path: 'moderador/verificacion-articulo/:id', component: VerificacionArticulosComponent},
-    {path: 'cliente/portalDeCompras', component: ArticulosEnVentaComponent},
-    {path: 'cliente/compra-articulo/:id', component: CompraArticuloComponent},
-    {path: 'cliente/mi-carreta', component: CarrteaComponent},
+    {path: 'cliente/portalDeVentas', component: ArticuloAVenderComponent,canActivate: [authGuard]},
+    {path: 'cliente/publicarArticulo', component: CrearArticuloVentaComponent, canActivate: [authGuard]},
+    {path: 'cliente/mis-publicaciones', component: VerMisArticuloPublicadosComponent,   canActivate: [authGuard]},
+    {path: 'moderador/paginaPrincipalModerador', component: PaginaPrincipalModeradorComponent, canActivate: [authGuard]},
+    {path: 'moderador/procesarSolicitudVenta', component: solicitudArticulosComponent, canActivate: [authGuard]},
+    {path: 'moderador/verificacion-articulo/:id', component: VerificacionArticulosComponent, canActivate: [authGuard]},
+    {path: 'cliente/portalDeCompras', component: ArticulosEnVentaComponent, canActivate: [authGuard]},
+    {path: 'cliente/compra-articulo/:id', component: CompraArticuloComponent, canActivate: [authGuard]},
+    {path: 'cliente/mi-carreta', component: CarrteaComponent, canActivate: [authGuard]  },
     {path: 'administración/reportes/historial-de-notificaciones', component: HistoryNotificationsComponent, canActivate: [authGuard]},
     {path: 'administración/reportes/top-10-clientes-con-mas-articulos-en-venta', component: Top10ccmaevComponent, canActivate: [authGuard]},
     {path: 'administracion/reportes/top-10-clientes-con-mas-pedidos', component: Top10CCMPComponent, canActivate: [authGuard]},
+    {path: 'administracion/reportes/historial-empleados', component: ListEmpladosComponent, canActivate: [authGuard]},
+    {path: 'administracion/reportes/top-5-clientes-con-mas-compras-venta', component: Top5CCMVComponent, canActivate: [authGuard]},
+    {path: 'administracion/reportes/top-10-productos-mas-vendidos', component: Top10PMVComponent, canActivate: [authGuard]},
+    {path: 'administración/reportes/top-5-clientes-con-mas-ganancias', component: Top5CCMGComponent, canActivate: [authGuard]},
 ];
+    

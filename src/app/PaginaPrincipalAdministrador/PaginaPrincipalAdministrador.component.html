@@ -36,7 +36,7 @@
             <a class="navbar-link" href="/administración/registroEmpleado">Registrar empleado</a>
           </li>
           <li class="navbar-item">
-            <a class="navbar-link">actualizar información</a>
+            <a class="navbar-link" href="/administracion/reportes/historial-empleados">Lista de empleados</a>
           </li>
           <li class="navbar-item dropdown">
   <a class="navbar-link">Reportes</a>
@@ -44,10 +44,13 @@
     <li><a href="/administración/reportes/historial-de-notificaciones">Notificaciones emitidas</a></li>
     <li><a href="/administración/reportes/top-10-clientes-con-mas-articulos-en-venta">Top 10 vendedores con mas articulos en venta</a></li>
     <li><a href="/administracion/reportes/top-10-clientes-con-mas-pedidos">Top 10 clientes con mas pedidos</a></li>
+    <li><a href="/administracion/reportes/top-5-clientes-con-mas-compras-venta">Top 5 clientes con mas ventas</a></li>
+    <li><a href="/administracion/reportes/top-10-productos-mas-vendidos">Top 10 productos mas vendidos</a></li>
+    <li><a href="/administración/reportes/top-5-clientes-con-mas-ganancias">Top 5 vendedores con mas ganancias</a></li>
   </ul>
 </li>
-          <li class="navbar-item">
-            <a class="navbar-link">Perfil</a>
+          <li class="navbar-item" (click)="cerrarSesion()">
+            <a class="navbar-link">Cerrar sesion</a>
           </li>
         </ul>
       </div>

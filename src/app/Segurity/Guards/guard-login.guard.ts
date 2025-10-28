@@ -15,13 +15,16 @@ export const guardLoginGuard: CanActivateFn = (route, state) => {
       const jwtUtils = inject(JwtUtils);
       if (jwtUtils.getRole(token) === 'administrador') {
         router.navigate(['/paginaPrincipalAdministrador']);
-
         authService.logout();
      
         return false;
       } else if (jwtUtils.getRole(token) === 'cliente') {
         router.navigate(['/cliente/home']);
-        authService.logout();
+      
+        return false;
+      }else if (jwtUtils.getRole(token) === 'moderador') {
+        router.navigate(['/moderador/paginaPrincipalModerador']);
+      
         return false;
       }
     }

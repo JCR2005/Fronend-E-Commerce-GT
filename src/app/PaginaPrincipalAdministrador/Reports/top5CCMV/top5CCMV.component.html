@@ -1,0 +1,66 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div *ngIf="cargando" class="loading-overlay">
+    <div class="loading-spinner"></div>
+    <p>Cargando, por favor espera...</p>
+  </div>
+
+  <div class="fondo"></div>
+
+  <div class="container">
+
+    <div class="top-bar">
+      <button class="boton-home" (click)="dashboard()">
+        <i class="fas fa-arrow-left"></i> Regresar al Dashboard
+      </button>
+      <p class="titulo">Top 5 Vendedores con mas ventas</p>
+    </div>
+ <div class="filtro-fecha">
+      <div class="campo-fecha">
+        <label for="fechaInicio">Fecha inicial:</label>
+        <input id="fechaInicio" type="date" [(ngModel)]="fechaInicio">
+      </div>
+
+      <div class="campo-fecha">
+        <label for="fechaFin">Fecha final:</label>
+        <input id="fechaFin" type="date" [(ngModel)]="fechaFin">
+      </div>
+
+      <button class="btn-filtrar" (click)="filtarPorFecha()" >
+        <i class="fas fa-filter"></i> Aplicar filtro
+      </button>
+    </div>
+    <div class="panel-1">
+      <table class="tabla-notificaciones">
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>Id vendedor</th>
+            <th>Nombre</th>
+            <th>Numero de Articulos Vendidos</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let top of clientesConMasVentas, let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ top.idCliente }}</td>
+            <td>{{ top.nombreCliente }}</td>
+            <td>{{ top.cantidadVentas }}</td>
+          </tr>
+
+          <tr *ngIf="clientesConMasVentas.length === 0">
+            <td colspan="5" class="no-data">No hay articulos en venta registradas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
