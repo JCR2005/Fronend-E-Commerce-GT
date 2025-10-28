@@ -1,5 +1,9 @@
 import { Routes } from '@angular/router';
 import { authGuard } from './Segurity/Guards/auth.guard';
+import { clienteGuard } from './Segurity/Guards/cliente.guard';
+import { administradorGuard } from './Segurity/Guards/administrador.guard';
+import { moderadorGuard } from './Segurity/Guards/moderador.guard';
+import { logisticaGuard } from './Segurity/Guards/logistica.guard';
 
 import { PaginaPrincipalComponent } from './PaginaPrincipal/PaginaPrincipal.component';
 import { LoginComponent } from './login/login.component';
@@ -34,29 +38,29 @@ export const routes: Routes = [
     {path: '', component: PaginaPrincipalComponent,canActivate: [guardLoginGuard]},
     {path: 'paginaPrincipal', component: PaginaPrincipalComponent,canActivate: [guardLoginGuard]},
     {path: 'login', component: LoginComponent, canActivate: [guardLoginGuard]},
-    {path: 'paginaPrincipalAdministrador', component: PaginaPrincipalAdministradorComponent,canActivate: [authGuard]}, 
+    {path: 'paginaPrincipalAdministrador', component: PaginaPrincipalAdministradorComponent,canActivate: [authGuard, administradorGuard]}, 
     {path: 'registroCliente', component: RegistroClienteComponent, canActivate: [guardLoginGuard]},
-    {path: 'cliente/home', component: PaginaPrincipalClienteComponent, canActivate: [authGuard]},
-    {path: 'administración/registroEmpleado', component: RegistroEmpleadoComponent, canActivate: [authGuard]},
-    {path: 'cliente/portalDeVentas', component: ArticuloAVenderComponent,canActivate: [authGuard]},
-    {path: 'cliente/publicarArticulo', component: CrearArticuloVentaComponent, canActivate: [authGuard]},
-    {path: 'cliente/mis-publicaciones', component: VerMisArticuloPublicadosComponent,   canActivate: [authGuard]},
-    {path: 'moderador/paginaPrincipalModerador', component: PaginaPrincipalModeradorComponent, canActivate: [authGuard]},
-    {path: 'moderador/procesarSolicitudVenta', component: solicitudArticulosComponent, canActivate: [authGuard]},
-    {path: 'moderador/verificacion-articulo/:id', component: VerificacionArticulosComponent, canActivate: [authGuard]},
-    {path: 'cliente/portalDeCompras', component: ArticulosEnVentaComponent, canActivate: [authGuard]},
-    {path: 'cliente/compra-articulo/:id', component: CompraArticuloComponent, canActivate: [authGuard]},
-    {path: 'cliente/mi-carreta', component: CarrteaComponent, canActivate: [authGuard]  },
-    {path: 'cliente/detalle-compras', component: DetalleComprasComponent, canActivate: [authGuard]  },
-    {path: 'logistica/home', component: LogisticaComponent, canActivate: [authGuard]  },
-    {path: 'logistica/visualizar-pedidos', component: VisualizarPedidosComponent, canActivate: [authGuard]  },
-    {path: 'logistica/actualizar-estado-pedido', component: ActualizarEstadoPedidoComponent, canActivate: [authGuard]  },
-    {path: 'administración/reportes/historial-de-notificaciones', component: HistoryNotificationsComponent, canActivate: [authGuard]},
-    {path: 'administración/reportes/top-10-clientes-con-mas-articulos-en-venta', component: Top10ccmaevComponent, canActivate: [authGuard]},
-    {path: 'administracion/reportes/top-10-clientes-con-mas-pedidos', component: Top10CCMPComponent, canActivate: [authGuard]},
-    {path: 'administracion/reportes/historial-empleados', component: ListEmpladosComponent, canActivate: [authGuard]},
-    {path: 'administracion/reportes/top-5-clientes-con-mas-compras-venta', component: Top5CCMVComponent, canActivate: [authGuard]},
-    {path: 'administracion/reportes/top-10-productos-mas-vendidos', component: Top10PMVComponent, canActivate: [authGuard]},
-    {path: 'administración/reportes/top-5-clientes-con-mas-ganancias', component: Top5CCMGComponent, canActivate: [authGuard]},
+    {path: 'cliente/home', component: PaginaPrincipalClienteComponent, canActivate: [authGuard, clienteGuard]},
+    {path: 'administración/registroEmpleado', component: RegistroEmpleadoComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'cliente/portalDeVentas', component: ArticuloAVenderComponent,canActivate: [authGuard, clienteGuard]},
+    {path: 'cliente/publicarArticulo', component: CrearArticuloVentaComponent, canActivate: [authGuard, clienteGuard]},
+    {path: 'cliente/mis-publicaciones', component: VerMisArticuloPublicadosComponent,   canActivate: [authGuard, clienteGuard]},
+    {path: 'moderador/paginaPrincipalModerador', component: PaginaPrincipalModeradorComponent, canActivate: [authGuard, moderadorGuard]},
+    {path: 'moderador/procesarSolicitudVenta', component: solicitudArticulosComponent, canActivate: [authGuard, moderadorGuard]},
+    {path: 'moderador/verificacion-articulo/:id', component: VerificacionArticulosComponent, canActivate: [authGuard, moderadorGuard]},
+    {path: 'cliente/portalDeCompras', component: ArticulosEnVentaComponent, canActivate: [authGuard, clienteGuard]},
+    {path: 'cliente/compra-articulo/:id', component: CompraArticuloComponent, canActivate: [authGuard, clienteGuard]},
+    {path: 'cliente/mi-carreta', component: CarrteaComponent, canActivate: [authGuard, clienteGuard]  },
+    {path: 'cliente/detalle-compras', component: DetalleComprasComponent, canActivate: [authGuard, clienteGuard]  },
+    {path: 'logistica/home', component: LogisticaComponent, canActivate: [authGuard, logisticaGuard]  },
+    {path: 'logistica/visualizar-pedidos', component: VisualizarPedidosComponent, canActivate: [authGuard, logisticaGuard]  },
+    {path: 'logistica/actualizar-estado-pedido', component: ActualizarEstadoPedidoComponent, canActivate: [authGuard, logisticaGuard]  },
+    {path: 'administración/reportes/historial-de-notificaciones', component: HistoryNotificationsComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'administración/reportes/top-10-clientes-con-mas-articulos-en-venta', component: Top10ccmaevComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'administracion/reportes/top-10-clientes-con-mas-pedidos', component: Top10CCMPComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'administracion/reportes/historial-empleados', component: ListEmpladosComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'administracion/reportes/top-5-clientes-con-mas-compras-venta', component: Top5CCMVComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'administracion/reportes/top-10-productos-mas-vendidos', component: Top10PMVComponent, canActivate: [authGuard, administradorGuard]},
+    {path: 'administración/reportes/top-5-clientes-con-mas-ganancias', component: Top5CCMGComponent, canActivate: [authGuard, administradorGuard]},
 ];
     
