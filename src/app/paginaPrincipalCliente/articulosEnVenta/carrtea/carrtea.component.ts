@@ -153,6 +153,10 @@ export class CarrteaComponent implements OnInit {
     this.fechaExpiracion = new Date();
   }
 
+  verDetalleCompras(): void {
+    this.router.navigate(['/cliente/detalle-compras']);
+  }
+
   guardarTarjeta() {
     {
       const tarjeta: Tarjeta = {

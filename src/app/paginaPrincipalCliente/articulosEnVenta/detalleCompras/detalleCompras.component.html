@@ -1,0 +1,43 @@
+<div class="detalle-container">
+  <div class="encabezado">
+    <h1>Detalle de compras</h1>
+    <button class="boton-regresar" (click)="regresarCarrito()">Volver al carrito</button>
+  </div>
+
+  <div *ngIf="cargando" class="estado">Cargando detalle de compras...</div>
+  <div *ngIf="!cargando && errorMensaje" class="estado estado-error">{{ errorMensaje }}</div>
+
+  <ng-container *ngIf="!cargando && !errorMensaje">
+    <table *ngIf="detalles.length > 0" class="tabla-detalle">
+      <thead>
+        <tr>
+          <th>Fecha</th>
+          <th>Artículo</th>
+          <th>Cantidad</th>
+          <th>Precio unitario</th>
+          <th>Subtotal</th>
+          <th>Estado</th>
+          <th>Método de pago</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let detalle of detalles">
+          <td>{{ detalle.fechaEntrega | date:'mediumDate' }}</td>
+          <td>{{ detalle.nombreArticulo }}</td>
+          <td>{{ detalle.cantidad }}</td>
+          <td>{{ detalle.precioUnitario | currency:'Q':'symbol':'1.2-2' }}</td>
+          <td>{{ detalle.precioTotal | currency:'Q':'symbol':'1.2-2' }}</td>
+          <td>{{ detalle.estado || 'Procesado' }}</td>
+            <td>{{'Tarjeta de crédito' }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="detalles.length === 0" class="estado">No hay compras registradas todavía.</div>
+
+    <div *ngIf="detalles.length > 0" class="total-general">
+      <span>Total acumulado</span>
+      <span>{{ calcularGranTotal() | currency:'Q':'symbol':'1.2-2' }}</span>
+    </div>
+  </ng-container>
+</div>

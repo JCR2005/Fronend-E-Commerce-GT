@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, tap, catchError, throwError } from 'rxjs';
 import { ItemCarrito } from '../../../models/itemCarrito';
 import { Tarjeta } from '../../../models/Tarjeta';
+import { DetalleCompraDTO } from '../../../models/DetalleCompraDTO';
 import { environment } from '../../../../environments/environment';
 
 @Injectable({
@@ -43,6 +44,9 @@ export class CarritoServiceService {
 
     private UrlVaciarCarrito: string =
     `${environment.apiUrl}/cliente/carrito/vaciar-carrito`;
+
+  private UrlDetalleCompras: string =
+  `${environment.apiUrl}/cliente/carrito/detalle-compras`;
 
   getCantidadArticulos(): Observable<any> {
     return this.httpClient.get<number>(this.UrlNumerosArticulosCarro).pipe(
@@ -160,5 +164,18 @@ export class CarritoServiceService {
         return throwError(() => error);
       })
     ).subscribe();
+  }
+
+  getDetalleCompras(): Observable<DetalleCompraDTO[]> {
+    return this.httpClient.get<DetalleCompraDTO[]>(this.UrlDetalleCompras)
+      .pipe(
+        tap((response) => {
+          console.log('Detalle de compras recibido:', response);
+        }),
+        catchError((error: HttpErrorResponse) => {
+          console.error('Error al obtener el detalle de compras:', error);
+          return throwError(() => error);
+        })
+      );
   }
 }

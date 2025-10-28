@@ -1,0 +1,31 @@
+<div class="logistica-container">
+  <nav class="navbar">
+    <div class="navbar-logo" (click)="regresarInicio()">
+      <span class="logo">E-Commerce GT</span>
+      <span class="logo-sub">Logística</span>
+    </div>
+    
+  </nav>
+
+  <section class="panel-principal">
+    <h1 class="titulo">Panel de logística</h1>
+    <p class="descripcion">
+      Gestiona los pedidos aprobados y mantén actualizado su estado en tiempo real.
+    </p>
+
+    <div class="acciones">
+      <button class="boton-primario" (click)="irVisualizarPedidos()">
+        <span class="material-icons">inventory_2</span>
+        Visualizar pedidos
+      </button>
+      <button class="boton-primario" (click)="irActualizarEstado()">
+        <span class="material-icons">assignment_turned_in</span>
+        Actualizar estado de pedido
+      </button>
+      <button class="boton-primario" (click)="cerrarSesion()">
+        <span class="material-icons">logout</span>
+        cerrar sesión
+      </button>
+    </div>
+  </section>
+</div>

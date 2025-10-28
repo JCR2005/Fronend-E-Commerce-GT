@@ -17,6 +17,10 @@ import { VerificacionArticulosComponent } from './PaginaPrincipalModerador/verif
 import { ArticulosEnVentaComponent } from './paginaPrincipalCliente/articulosEnVenta/articulosEnVenta.component';
 import { CompraArticuloComponent } from './paginaPrincipalCliente/articulosEnVenta/compraArticulo/compraArticulo.component';
 import { CarrteaComponent } from './paginaPrincipalCliente/articulosEnVenta/carrtea/carrtea.component';
+import { DetalleComprasComponent } from './paginaPrincipalCliente/articulosEnVenta/detalleCompras/detalleCompras.component';
+import { LogisticaComponent } from './logistica/logistica.component';
+import { VisualizarPedidosComponent } from './logistica/visualizar-pedidos/visualizar-pedidos.component';
+import { ActualizarEstadoPedidoComponent } from './logistica/actualizar-estado-pedido/actualizar-estado-pedido.component';
 import { HistoryNotificationsComponent } from './PaginaPrincipalAdministrador/Reports/historyNotifications/historyNotifications.component';
 import { Top10ccmaevComponent } from './PaginaPrincipalAdministrador/Reports/top10ccmaev/top10ccmaev.component';
 import { Top10CCMPComponent } from './PaginaPrincipalAdministrador/Reports/top10CCMP/top10CCMP.component';
@@ -43,6 +47,10 @@ export const routes: Routes = [
     {path: 'cliente/portalDeCompras', component: ArticulosEnVentaComponent, canActivate: [authGuard]},
     {path: 'cliente/compra-articulo/:id', component: CompraArticuloComponent, canActivate: [authGuard]},
     {path: 'cliente/mi-carreta', component: CarrteaComponent, canActivate: [authGuard]  },
+    {path: 'cliente/detalle-compras', component: DetalleComprasComponent, canActivate: [authGuard]  },
+    {path: 'logistica/home', component: LogisticaComponent, canActivate: [authGuard]  },
+    {path: 'logistica/visualizar-pedidos', component: VisualizarPedidosComponent, canActivate: [authGuard]  },
+    {path: 'logistica/actualizar-estado-pedido', component: ActualizarEstadoPedidoComponent, canActivate: [authGuard]  },
     {path: 'administración/reportes/historial-de-notificaciones', component: HistoryNotificationsComponent, canActivate: [authGuard]},
     {path: 'administración/reportes/top-10-clientes-con-mas-articulos-en-venta', component: Top10ccmaevComponent, canActivate: [authGuard]},
     {path: 'administracion/reportes/top-10-clientes-con-mas-pedidos', component: Top10CCMPComponent, canActivate: [authGuard]},

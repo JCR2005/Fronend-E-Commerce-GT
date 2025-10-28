@@ -1,0 +1,51 @@
+<div class="visualizar-contenedor">
+  <header class="encabezado">
+    <div>
+      <h1>Pedidos registrados</h1>
+      <p>Consulta el historial de compras para coordinar despachos y entregas.</p>
+    </div>
+    <button class="boton-regresar" (click)="regresar()">
+      <span class="material-icons">arrow_back</span>
+      Regresar al panel
+    </button>
+  </header>
+
+  <section class="panel-detalle">
+    <div *ngIf="cargando" class="estado">Cargando pedidos...</div>
+    <div *ngIf="!cargando && errorMensaje" class="estado estado-error">{{ errorMensaje }}</div>
+
+    <ng-container *ngIf="!cargando && !errorMensaje">
+      <table *ngIf="detalles.length > 0" class="tabla-detalle">
+        <thead>
+          <tr>
+            <th>Fecha estimada</th>
+            <th>Artículo</th>
+            <th>Cantidad</th>
+            <th>Precio unitario</th>
+            <th>Total</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let detalle of detalles">
+            <td>{{ detalle.fechaEntrega | date:'mediumDate' }}</td>
+            <td>{{ detalle.nombreArticulo }}</td>
+            <td>{{ detalle.cantidad }}</td>
+            <td>{{ detalle.precioUnitario | currency:'Q':'symbol':'1.2-2' }}</td>
+            <td>{{ calcularTotalCompra(detalle) | currency:'Q':'symbol':'1.2-2' }}</td>
+            <td>{{ detalle.estado || 'Pendiente' }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="detalles.length === 0" class="estado">
+        Aún no hay pedidos disponibles para mostrar.
+      </div>
+
+      <div *ngIf="detalles.length > 0" class="total-general">
+        <span>Total acumulado</span>
+        <span>{{ calcularGranTotal() | currency:'Q':'symbol':'1.2-2' }}</span>
+      </div>
+    </ng-container>
+  </section>
+</div>

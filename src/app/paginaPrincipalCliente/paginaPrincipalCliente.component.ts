@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../Segurity/authService/authService.service';
 
 @Component({
   selector: 'app-paginaPrincipalCliente',
@@ -11,8 +12,8 @@ import { Router } from '@angular/router';
 export class PaginaPrincipalClienteComponent{
 
 
-  
-  constructor(private router:Router) { }
+
+  constructor(private router:Router, private authService: AuthServiceService) { }
 
   mostrarBotonHome=false
   mostrarPanelCompraArticulos: boolean =false;
@@ -24,6 +25,13 @@ export class PaginaPrincipalClienteComponent{
     this.mostrarPanelCompraArticulos=true;
   }
 
+  cerrarSesion(){
+   const confirmado = confirm("¿Estás seguro de que deseas cerrar la sesión?");
+
+    if (confirmado) {
+      this.authService.logout();
+    }
+  }
 
   cerrarPaneles(){
     this.mostrarPanelCompraArticulos=false;

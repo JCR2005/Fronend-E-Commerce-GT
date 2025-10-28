@@ -289,6 +289,10 @@
                         <label>Total:</label>
                         {{ calcularTotal() }}.00 Q
                     </div>
+                    <button class="detalle-compras" (click)="verDetalleCompras()">
+                        <span class="material-icons">receipt_long</span>
+                        Ver detalle
+                    </button>
 
                     <button class="comprar-bolsa" (click)="comprarArticulos()">
                         <span class="material-icons">shopping_bag</span>
